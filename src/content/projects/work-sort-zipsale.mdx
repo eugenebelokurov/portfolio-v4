@@ -1,0 +1,103 @@
+# Small feature that unlocked our product
+
+Learn how I revamped the existing feature for a SaaS company: why it was important, why collaboration with the engineers was crucial and why the development appeared to be harder than I expected.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/animated-flow.gif" alt="Word Embeddings" width="400" height="800"/>
+</div>
+
+- my role: product designer
+- year: 2024
+- timeline: 2 months
+- team: me, 1 full-stack engineer
+
+## B2B SaaS for second-hand sellers
+
+Imagine having 1000s items to sell e.g. vintage/preloved clothes, shoes or antiques. Manually listing them on marketplaces is a nightmare. That's where our product comes in to automate the process of cross-listing and auto-delisting.
+
+We launched 3 years ago, have hundreds of paying customers, and 2,500,000+ listings were created using our product.
+
+Here is our landing
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/research-case/zipsale-landing.png" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+## Why we needed to update an existing feature
+
+We were about to launch a new paid feature that would allow users to boost sales. To utilize this new feature users need to sort or filter their inventory by "listed at" date. The lack of such functionality was a major blocker for our product.
+
+After performing an act of thinking, I decided to proceed with the sort feature first.
+
+## Metrics I (would) have tracked
+
+In reality, the metrics weren't tracked due to the lack of time and resources.
+
+- **Adoption rate** to check if users are aware of the sort feature
+- **Frequency of use** to track if users find the new sort functionality valuable and are incorporating it into their regular workflows
+- **Users' feedback** the qualitative feedback coming from users directly can indicate their satisfaction with the new sort functionality
+
+## Researching sort in other products
+
+The sort function is present in a lot of products already. I didn't want to reinvent the wheel. That's why I focused on exploring existing e-commerce and no-code software with database functionality.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/sort-study.png" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+Outcomes of the research
+1. **Notion as the main inspiration.** Our product is data-heavy so I decided to use sort by Notion as a main source of inspiration.
+2. **User-friendly wording.** One of the design principles suggests reducing the cognitive load of UIs. Using "New first" instead of "Ascending" does that.
+3. **Immediate vs action-based sort.** Applying sort after clicking "Apply" is more user-friendly for cases with granular settings such as ours. It also implies fewer requests to our backend and was supported by our engineers later.
+
+## Brainstorming with engineers
+
+After research, I had a general idea for UI. But are there any potential roadblocks? I approached our engineering team with two questions in mind:
+
+1. Is there anything I must consider engineering-wise when designing the feature?
+2. How to display all the dates without ruining the interface? I was stuck and needed help. See my initial idea below.
+
+I wanted to provide users with feedback when sort is applied. But how to achieve it without cluttering the dashboard? At the moment, I couldn't come up with anything better than showing dates for all items and marketplaces.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/sort-as-it-is.png" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+Outcomes of the meeting with engineers:
+
+1. One of the engineers suggested a brilliant idea: allow to sort within only one marketplace hence we need to show dates only for one marketplace. I decided to proceed with this solution.
+2. We don't store dates needed to sort by listing date. The data need to be imported before we release the feature.
+
+## Workaround found: we have to launch in stages
+
+The rolling-out process wasn't smooth because of the tight timeline and constraints on the engineering side. Importing data for millions of items would be extremely resource-demanding so we decided to rollout the new sort for paid subscribers first.
+
+Stages:
+1. added sort for Ebay for paid subscribers only;
+2. added sort for Ebay for all users;
+3. added sort for Depop for paid subscribers only;
+4. added sort for Depop for all users.
+I provided users with a tooltip explaining our future plans and current limitations.
+
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/animated-tooltip.gif" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+
+## Final design: before and after
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/old-sort.png" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/sort-case/animated-new-sort.gif" alt="Word Embeddings" width="800" height="800"/>
+</div>
+
+## Lessons learned
+
+- **Start collaborating with engineers as soon as possible.** [i] A great UI idea came from an engineer. Benefits of working as a team. [ii] We didn't have all the required data so I had to adjust my design. No way I knew that if I was working separately from the rest of the team.
+- **Some problems are already solved.** There was no need to craft search functionality from scratch. It is well-known piece of an interface. Adapting existing solutions worked perfectly for us.
+
+<OtherWork currentSlug="work-sort-zipsale"/>
