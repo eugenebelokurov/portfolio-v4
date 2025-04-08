@@ -6,7 +6,6 @@ export default function Sidebar() {
     const emailButtonRef = useRef<HTMLButtonElement>(null);
 
     const handleCopyEmail = () => {
-        // const emailButton = document.getElementById("copy-email");
         const emailButton = emailButtonRef.current;
         const initialWidth = emailButton?.clientWidth;
         
@@ -24,8 +23,9 @@ export default function Sidebar() {
         <div className="w-72 sticky top-0 bg-black pt-4 pl-4 pr-2 flex flex-col gap-8">
             <div className="flex flex-col gap-2">
                 <p className="text-white leading-[1.2]">
-                    eugene is product designer. <span className="text-green-500">available for new projects.</span>
+                    eugene is product designer.
                 </p>
+                <p className="text-green-500">● available for new projects.</p>
                 <p className="text-white leading-[1.2]">
                     information architecture, user research, prototyping or just ui work, let&#39;s chat.
                 </p>
@@ -48,7 +48,7 @@ export default function Sidebar() {
                 </div>
             </div>
             <div className="flex flex-col gap-1">
-                <p className="text-[#717171]">my work</p>
+                {/* <p className="text-[#717171]">my work</p> */}
                 <ul>
                     <li><LocalLink href="#" className="text-white">selected work</LocalLink></li>
                     {/* <li className="text-[#424242] underline-offset-6 mb-2">index of all my projects</li>
@@ -56,9 +56,9 @@ export default function Sidebar() {
                 </ul>
             </div>
             <div className="flex flex-col gap-1">
-                <p className="text-[#717171]">personal</p>
+                {/* <p className="text-[#717171]">personal</p> */}
                 <ul>
-                    <li><LocalLink href="#" className="text-white">about me</LocalLink></li>
+                    <li><LocalLink href="#about-me" className="text-white">about me</LocalLink></li>
                     {/* <li className="text-[#424242] underline-offset-6 mb-2">my services</li>
                     <li className="text-[#424242] underline-offset-6 mb-2">me offline</li> */}
                 </ul>

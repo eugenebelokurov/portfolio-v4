@@ -132,11 +132,12 @@ export default function Home() {
             <Sidebar />
         </nav>
         <main className="grid grid-cols-[288px_auto]">
-          <div></div> {/* ← Column to accomodate sidebar */}
-          <div> {/* Section with selected work */}
+          <div></div> {/* Column to accomodate sidebar */}
+          {/* Section with selected work */}
+          <div>
             <div className="grid grid-cols-[288px_auto] relative">
               <div 
-                className="flex flex-col w-[288px] gap-16 absolute top-0 pt-4 pl-2 pr-2"
+                className="flex flex-col w-[288px] gap-16 absolute top-0 pt-4 px-2"
                 id="projects-descriptions" 
                 ref={projectsDescriptionsRef}
                 style={{ transition: 'transform 0.1s ease-out' }}
@@ -181,10 +182,18 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <p className="text-black pl-2 pb-80">hey i am the next section hey i am the next section hey i am the next section</p>
+            <div id="about-me" className="mt-16 mb-40 max-w-2xl px-2">
+              <p  className="my-8 lowercase">
+                I am a product designer with two years of experience. In total I have 5+ years of grinding at startups. 
+                I worked across different industries including fintech, ecommerce, construction, charities. 
+                I have experience working within teams from seed startups with less than 10 people to scale ups 200+ people.
+              </p>
+              <p className="my-8 lowercase">
+                I like to wear many hats. My way is about being full-stack designer: code + business + design. 
+                I am all in for frank but kind communication without fluff.
+              </p>
+            </div>
           </div>
-          <div className="pb-80"></div>
-          
         </main>
       </div>
     </div>
