@@ -52,7 +52,7 @@ function ProjectPageContent({ fileContent }: { fileContent: string }) {
   };
 
   return (
-    <main className="flex flex-col items-center mx-auto py-4 max-w-2xl">
+    <main className="flex flex-col items-center mx-4 sm:mx-auto py-4 max-w-2xl ">
       <Link href="/" className="underline underline-offset-6 hover:text-gray-600 self-start py-8">
         home
       </Link>

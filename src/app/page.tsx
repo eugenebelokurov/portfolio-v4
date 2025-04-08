@@ -12,47 +12,39 @@ import projects, { getProjectImage } from "./projects";
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0)
 
-    const projectsDescriptionsRef = useRef<HTMLDivElement>(null)
-    const projectsImagesRef = useRef<HTMLDivElement>(null)
+  const projectsDescriptionsRef = useRef<HTMLDivElement>(null)
+  const projectsImagesRef = useRef<HTMLDivElement>(null)
 
-    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
+  const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-    const imagesHeight = projectsImagesRef.current?.clientHeight
-    const descriptionHeightRef = useRef<HTMLDivElement>(null)
-    const descriptionHeight = descriptionHeightRef.current?.clientHeight
-    // const descriptionHeight = document.getElementById("projects-descriptions")?.clientHeight;
-    const minScroll = Math.min(scrollPosition, (imagesHeight! - windowHeight));
+  const imagesHeight = projectsImagesRef.current?.clientHeight
+  const descriptionHeight = projectsDescriptionsRef.current?.clientHeight
+  const minScroll = Math.min(scrollPosition, (imagesHeight! - windowHeight));
 
-    // const opacityClass = isActive ? "opacity-100" : "opacity-10"
+  useEffect(() => {
+      const handleScroll = () => {
+          setScrollPosition(window.scrollY);
+      };
+      
+      window.addEventListener('scroll', handleScroll);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPosition(window.scrollY);
-        };
-        
-        window.addEventListener('scroll', handleScroll);
+      setScrollPosition(window.scrollY);
+      
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
-        setScrollPosition(window.scrollY);
-        
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
+  useEffect(() => {
+    if (projectsDescriptionsRef.current) {
+      const newY = (imagesHeight! - windowHeight - (descriptionHeight! - windowHeight)) * minScroll / (imagesHeight! - windowHeight);
+      projectsDescriptionsRef.current.style.transform = `translateY(${newY}px)`;
+    }
 
-      useEffect(() => {
-        if (projectsDescriptionsRef.current) {
-            const height = projectsDescriptionsRef.current.clientHeight;
-            console.log(height);
-            const newY = (imagesHeight! - windowHeight - (descriptionHeight! - windowHeight)) * minScroll / (imagesHeight! - windowHeight);
-            projectsDescriptionsRef.current.style.transform = `translateY(${newY}px)`;
-        }
-
-      },[scrollPosition]);
+  },[scrollPosition]);
 
 
   const [activeProjectId, setActiveProjectId] = useState<number>(1)
-
-  // const projectsDescriptionsRef = useRef<HTMLDivElement>(null)
 
   // Refs for project sections in the image gallery
   const projectRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -62,7 +54,7 @@ export default function Home() {
     const options = {
       root: null, // Use the viewport
       rootMargin: "0px",
-      threshold: 0.6, // At least 50% of the element is visible
+      threshold: 0.6,
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -90,6 +82,7 @@ export default function Home() {
 
   return (
     <div>
+      {/* Mobile page */}
       <div className="block sm:hidden">
         <div className="flex flex-col gap-4">
           <MobileSidebar />
@@ -138,15 +131,14 @@ export default function Home() {
         <nav className="bg-black fixed h-screen w-[288px] flex flex-col items-center justify-start">
             <Sidebar />
         </nav>
-        <main className="grid gap-1 grid-cols-[288px_auto]">
-          <div></div> {/* Column to accomodate sidebar */}
+        <main className="grid grid-cols-[288px_auto]">
+          <div></div> {/* ← Column to accomodate sidebar */}
           <div> {/* Section with selected work */}
-            {/* <p className="pt-4 pl-2">selected work</p> */}
-            <div className="grid grid-cols-[288px_auto] gap-1 relative">
+            <div className="grid grid-cols-[288px_auto] relative">
               <div 
                 className="flex flex-col w-[288px] gap-16 absolute top-0 pt-4 pl-2 pr-2"
                 id="projects-descriptions" 
-                ref={projectsDescriptionsRef} 
+                ref={projectsDescriptionsRef}
                 style={{ transition: 'transform 0.1s ease-out' }}
               >
                 {/* Project descriptions */}
@@ -189,9 +181,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <p className="text-black pl-2 pb-80">hey i am the next section hey i am the next section hey i am the next section</p>
           </div>
           <div className="pb-80"></div>
-          {/* <p className="text-black pl-80 pb-80">hey i am the next section hey i am the next section hey i am the next section</p> */}
+          
         </main>
       </div>
     </div>
