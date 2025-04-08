@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import LocalLink from "./local-link"
 
 export default function Sidebar() {
     const [copied, setCopied] = useState(false);
+    const emailButtonRef = useRef<HTMLButtonElement>(null);
 
     const handleCopyEmail = () => {
-        const emailButton = document.getElementById("copy-email");
+        // const emailButton = document.getElementById("copy-email");
+        const emailButton = emailButtonRef.current;
         const initialWidth = emailButton?.clientWidth;
+        
         navigator.clipboard.writeText("eo.belokurov@gmail.com")
         setCopied(true);
         emailButton!.style.width = `${initialWidth}px`;
@@ -24,13 +27,14 @@ export default function Sidebar() {
                     eugene is product designer. <span className="text-green-500">available for new projects.</span>
                 </p>
                 <p className="text-white leading-[1.2]">
-                    information architecture, user research, prototyping or just ui work, let's chat.
+                    information architecture, user research, prototyping or just ui work, let&#39;s chat.
                 </p>
                 <div className="flex flex-row gap-6">
                     <button
                         onClick={handleCopyEmail}
                         className="text-white underline underline-offset-6 transition-all cursor-pointer text-left"
                         id="copy-email"
+                        ref={emailButtonRef}
                     >
                         {copied ? "copied" : "copy email"}
                     </button>

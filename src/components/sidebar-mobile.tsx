@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import LocalLink from "./local-link";
 
 export default function MobileSidebar() {
     const [copied, setCopied] = useState(false);
+        const emailButtonRef = useRef<HTMLButtonElement>(null);
     
-    const handleCopyEmail = () => {
-        const emailButton = document.getElementById("copy-email");
-        const initialWidth = emailButton?.clientWidth;
-        navigator.clipboard.writeText("eo.belokurov@gmail.com")
-        setCopied(true);
-        emailButton!.style.width = `${initialWidth}px`;
-        setTimeout(() => {
-            setCopied(false);
-            emailButton!.style.width = '';
+        const handleCopyEmail = () => {
+            // const emailButton = document.getElementById("copy-email");
+            const emailButton = emailButtonRef.current;
+            const initialWidth = emailButton?.clientWidth;
+            
+            navigator.clipboard.writeText("eo.belokurov@gmail.com")
+            setCopied(true);
+            emailButton!.style.width = `${initialWidth}px`;
+            setTimeout(() => {
+                setCopied(false);
+                emailButton!.style.width = '';
+            }
+            , 1200);
         }
-        , 1200);
-    }
 
     return (
         <div className="w-full bg-black p-4 flex flex-col gap-4">
@@ -24,7 +27,7 @@ export default function MobileSidebar() {
                     eugene is product designer. <span className="text-green-500">available for new projects.</span>
                 </p>
                 <p className="text-white leading-[1.2]">
-                    information architecture, user research, prototyping or just ui work, let's chat.
+                    information architecture, user research, prototyping or just ui work, let&#39;s chat.
                 </p>
                 <div className="flex flex-row gap-6">
                     <button

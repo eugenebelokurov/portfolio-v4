@@ -42,8 +42,6 @@ export default function OtherWork({ currentSlug }: OtherWorkProps) {
         };
     });
 
-    const workTitle = getProject(1)!.research;
-
   return (
     <div className="flex flex-col mb-8">
         <h2 className="text-gray-800 font-bold dark:text-zinc-200 mt-8 mb-4">Other Work</h2>

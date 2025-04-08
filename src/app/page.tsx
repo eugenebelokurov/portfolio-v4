@@ -13,10 +13,14 @@ export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0)
 
     const projectsDescriptionsRef = useRef<HTMLDivElement>(null)
+    const projectsImagesRef = useRef<HTMLDivElement>(null)
+
     const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-    const imagesHeight = document.getElementById("projects-images")?.clientHeight;
-    const descriptionHeight = document.getElementById("projects-descriptions")?.clientHeight;
+    const imagesHeight = projectsImagesRef.current?.clientHeight
+    const descriptionHeightRef = useRef<HTMLDivElement>(null)
+    const descriptionHeight = descriptionHeightRef.current?.clientHeight
+    // const descriptionHeight = document.getElementById("projects-descriptions")?.clientHeight;
     const minScroll = Math.min(scrollPosition, (imagesHeight! - windowHeight));
 
     // const opacityClass = isActive ? "opacity-100" : "opacity-10"
@@ -160,6 +164,7 @@ export default function Home() {
               <div 
                 className="grid grid-cols-2 grid-rows-[repeat(6,minmax(1fr/2,1fr))] gap-1 gap-y-4 pt-4 pr-2 pl-2" 
                 id="projects-images"
+                ref={projectsImagesRef}
               >
                 <div className="col-span-2 grid grid-cols-subgrid gap-1 gap-y-4" data-project-id="1" ref={(el) => { projectRefs.current[0] = el; }}>
                   {/* First project */}
