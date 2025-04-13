@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useRef } from "react"
 import LocalLink from "./local-link"
 
@@ -20,14 +22,14 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="w-72 sticky top-0 bg-black pt-4 pl-4 pr-2 flex flex-col gap-8">
+        <div className="w-72 sticky top-0 bg-black pt-4 px-4 flex flex-col gap-8">
             <div className="flex flex-col gap-2">
                 <p className="text-white leading-[1.2]">
                     eugene is product designer.
                 </p>
-                <p className="text-green-500">● available for new projects.</p>
+                
                 <p className="text-white leading-[1.2]">
-                    information architecture, user research, prototyping or just ui work, let&#39;s chat.
+                    information architecture, user research, prototyping or just ui work, let&#39;s chat. <span className="text-green-500">i am available for new projects.</span>
                 </p>
                 <div className="flex flex-row gap-6">
                     <button
@@ -48,9 +50,9 @@ export default function Sidebar() {
                 </div>
             </div>
             <div className="flex flex-col gap-1">
-                {/* <p className="text-[#717171]">my work</p> */}
+                <p className="text-[#717171]">my work</p>
                 <ul>
-                    <li><LocalLink href="#" className="text-white">selected work</LocalLink></li>
+                    <li><LocalLink href="#selected-work" className="text-white">selected work</LocalLink></li>
                     {/* <li className="text-[#424242] underline-offset-6 mb-2">index of all my projects</li>
                     <li className="text-[#424242] underline-offset-6 mb-2">just visuals</li> */}
                 </ul>

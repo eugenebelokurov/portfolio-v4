@@ -22,9 +22,10 @@ export default function ProjectDescription( { project, isActive } : ProjectDescr
 
     return (
         <div className={`flex flex-col gap-2 ${opacityClass} ${transitionClass}`}>
-            <p className="mb-4 break-words leading-[1.2]">{project.research}</p>
+            <p className="mb-4 break-words leading-[1.2]">{project.description}</p>
+            <p className="mb-4 text-[#A3A3A3] break-words leading-[1.2]">{project.tags}</p>
 
-            <ul className="mb-4 space-y-1.5">
+            {/* <ul className="mb-4 space-y-1.5">
                 <li>
                     <p className="leading-[1.2]"><span className="text-[#B8B8B8] pr-2">product</span>{project.product}</p>
                 </li>
@@ -40,7 +41,7 @@ export default function ProjectDescription( { project, isActive } : ProjectDescr
                 <li>
                     <p className="leading-[1.2]"><span className="text-[#B8B8B8] pr-2">status</span>{project.status}</p>
                 </li>
-            </ul>
+            </ul> */}
 
             <Link href={projectHref} className="text-black underline underline-offset-6 hover:text-gray-600">
                 read more

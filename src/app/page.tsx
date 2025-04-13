@@ -1,200 +1,100 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
 import Sidebar from "@/components/sidebar";
 import MobileSidebar from "@/components/sidebar-mobile";
 import ProjectDescription from "@/components/project-description";
-import SingleImageRow from "@/components/images-single-row";
-import DoubleImageRow from "@/components/image-double-row";
+import ProjectCard from "@/components/project-card";
 
-import projects, { getProjectImage } from "./projects";
+import Image from "next/image";
+
+import projects, { getProjectImage, getProject } from "./projects";
 
 export default function Home() {
-  const [scrollPosition, setScrollPosition] = useState(0)
-
-  const projectsDescriptionsRef = useRef<HTMLDivElement>(null)
-  const projectsImagesRef = useRef<HTMLDivElement>(null)
-
-  const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
-
-  const imagesHeight = projectsImagesRef.current?.clientHeight
-  const descriptionHeight = projectsDescriptionsRef.current?.clientHeight
-  const minScroll = Math.min(scrollPosition, (imagesHeight! - windowHeight));
-
-  useEffect(() => {
-      const handleScroll = () => {
-          setScrollPosition(window.scrollY);
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-
-      setScrollPosition(window.scrollY);
-      
-      return () => {
-          window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-
-  useEffect(() => {
-    if (projectsDescriptionsRef.current) {
-      const newY = (imagesHeight! - windowHeight - (descriptionHeight! - windowHeight)) * minScroll / (imagesHeight! - windowHeight);
-      projectsDescriptionsRef.current.style.transform = `translateY(${newY}px)`;
-    }
-
-  },[scrollPosition]);
-
-
-  const [activeProjectId, setActiveProjectId] = useState<number>(1)
-
-  // Refs for project sections in the image gallery
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  // Set up intersection observer to detect which project is most visible
-  useEffect(() => {
-    const options = {
-      root: null, // Use the viewport
-      rootMargin: "0px",
-      threshold: 0.6,
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Extract project ID from the data attribute
-          const projectId = Number(entry.target.getAttribute("data-project-id"))
-          setActiveProjectId(projectId)
-        }
-      })
-    }, options)
-
-    // Observe all project sections
-    projectRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    return () => {
-      projectRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref)
-      })
-    }
-  }, [])
-
 
   return (
     <div>
       {/* Mobile page */}
       <div className="block sm:hidden">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <MobileSidebar />
-          <div className="mx-4">
-            <div className="flex flex-col gap-4">
-              <DoubleImageRow className="" images={[getProjectImage(1, "progress-indicator-id")!, getProjectImage(1, "popup-id")!]} />
-              <SingleImageRow className="" image={getProjectImage(1, "dashboard-id")!} />
-              <ProjectDescription
-                project={projects[0]}
-                isActive={true}
-              />
-            </div>
-            <hr className="border-gray-200 my-8"></hr>
-            <div className="flex flex-col gap-4">
-              <DoubleImageRow className="col-span-2" images={[getProjectImage(2, "animated-flow-id")!, getProjectImage(2, "animated-tooltip-id")!]} />
-            <ProjectDescription
-              project={projects[1]}
-              isActive={true}
-            />
-            </div>
-            <hr className="border-gray-200 my-8"></hr>
-            <div className="flex flex-col gap-4">
-              <DoubleImageRow className="col-span-2" images={[getProjectImage(3, "app-case-cover-id")!, getProjectImage(3, "animated-swiping-cards-id")!]} />
-              <SingleImageRow className="col-span-2" image={getProjectImage(3, "lean-canvas-id")!} />
-            <ProjectDescription
-              project={projects[2]}
-              isActive={true}
-            />
-            </div>
-            <hr className="border-gray-200 my-8"></hr>
-            <div className="flex flex-col gap-4">
-              <DoubleImageRow className="col-span-2" images={[getProjectImage(4, "definition-specs-id")!, getProjectImage(4, "ui-case-cover-id")!]} />
-              <DoubleImageRow className="col-span-2" images={[getProjectImage(4, "ui-case-flash-card-specs-id")!, getProjectImage(4, "animated-flipping-card-chrome-id")!]} />
-              <SingleImageRow className="col-span-2" image={getProjectImage(4, "ui-case-word-definition-anatomy-id")!} />
-            <ProjectDescription
-              project={projects[3]}
-              isActive={true}
-            />
-            </div>
-          </div>
+          <section>
+            <p className="font-semibold mx-4 pt-4 pb-2 border-b-[1.5px] border-black">selected work</p>
+            {
+              projects.map((project, i) => (
+                <ProjectCard
+                  key={i}
+                  project={project}
+                />
+              ))
+            }
+          </section>
         </div>
-      </div>
-
-      {/* Desktop page */}
-      <div className="hidden sm:block">
-        <nav className="bg-black fixed h-screen w-[288px] flex flex-col items-center justify-start">
-            <Sidebar />
-        </nav>
-        <main className="grid grid-cols-[288px_auto]">
-          <div></div> {/* Column to accomodate sidebar */}
-          {/* Section with selected work */}
-          <div>
-            <div className="grid grid-cols-[288px_auto] relative">
-              <div 
-                className="flex flex-col w-[288px] gap-16 absolute top-0 pt-4 px-2"
-                id="projects-descriptions" 
-                ref={projectsDescriptionsRef}
-                style={{ transition: 'transform 0.1s ease-out' }}
-              >
-                {/* Project descriptions */}
-                {
-                  projects.map((project, i) => (
-                    <ProjectDescription
-                      key={i}
-                      project={project}
-                      isActive={activeProjectId === project.id}
-                    />
-                  ))
-                }
-              </div>
-              <div></div> {/* Column to accomodate project descriptions */}
-              <div 
-                className="grid grid-cols-2 grid-rows-[repeat(6,minmax(1fr/2,1fr))] gap-1 gap-y-4 pt-4 pr-2 pl-2" 
-                id="projects-images"
-                ref={projectsImagesRef}
-              >
-                <div className="col-span-2 grid grid-cols-subgrid gap-1 gap-y-4" data-project-id="1" ref={(el) => { projectRefs.current[0] = el; }}>
-                  {/* First project */}
-                  <DoubleImageRow className="col-span-2" images={[getProjectImage(1, "progress-indicator-id")!, getProjectImage(1, "popup-id")!]} />
-                  <SingleImageRow className="col-span-2" image={getProjectImage(1, "dashboard-id")!} />
-                </div>
-                <div className="col-span-2 grid grid-cols-subgrid gap-1 gap-y-4" data-project-id="2" ref={(el) => { projectRefs.current[1] = el; }}>
-                  {/* Second project */}
-                  <DoubleImageRow className="col-span-2" images={[getProjectImage(2, "animated-flow-id")!, getProjectImage(2, "animated-tooltip-id")!]} />
-                  {/* <SingleImageRow className="col-span-2" image={getProjectImage(1, "dashboard-id")!} /> */}
-                </div>
-                <div className="col-span-2 grid grid-cols-subgrid gap-1 gap-y-4" data-project-id="3" ref={(el) => { projectRefs.current[2] = el; }}>
-                  {/* Third project */}
-                  <DoubleImageRow className="col-span-2" images={[getProjectImage(3, "app-case-cover-id")!, getProjectImage(3, "animated-swiping-cards-id")!]} />
-                  <SingleImageRow className="col-span-2" image={getProjectImage(3, "lean-canvas-id")!} />
-                </div>
-                <div className="col-span-2 grid grid-cols-subgrid gap-1 gap-y-4" data-project-id="4" ref={(el) => { projectRefs.current[3] = el; }}>
-                  {/* Forth project */}
-                  <DoubleImageRow className="col-span-2" images={[getProjectImage(4, "definition-specs-id")!, getProjectImage(4, "ui-case-cover-id")!]} />
-                  <DoubleImageRow className="col-span-2" images={[getProjectImage(4, "ui-case-flash-card-specs-id")!, getProjectImage(4, "animated-flipping-card-chrome-id")!]} />
-                  <SingleImageRow className="col-span-2" image={getProjectImage(4, "ui-case-word-definition-anatomy-id")!} />
-                </div>
-              </div>
-            </div>
-            <div id="about-me" className="mt-16 mb-40 max-w-2xl px-2">
-              <p  className="my-8 lowercase">
+        <section id="about-me" className="mt-16 mb-16 mx-4">
+            <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">about me</p>
+            <div className="max-w-2xl">
+              <p  className="mb-8 lowercase">
                 I am a product designer with two years of experience. In total I have 5+ years of grinding at startups. 
                 I worked across different industries including fintech, ecommerce, construction, charities. 
-                I have experience working within teams from seed startups with less than 10 people to scale ups 200+ people.
+                I have experience working within teams from seed startups with less than 10 people to scale ups 200+ people. 
+                you can find me in London, UK.
               </p>
               <p className="my-8 lowercase">
                 I like to wear many hats. My way is about being full-stack designer: code + business + design. 
                 I am all in for frank but kind communication without fluff.
               </p>
             </div>
+          </section>
+          <section id="digital-trail" className="mx-4 mb-16">
+            <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">digital trail</p>
+            <ul>
+                <li><a href="https://www.are.na/eugene-belokurov/channels" target="_blank" className="underline underline-offset-6 mb-2 block">are.na</a></li>
+                <li><a href="https://www.instagram.com/evgenybelokurov/" target="_blank" className="underline underline-offset-6 mb-2 block">instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/eugenebelokurov/" target="_blank" className="underline underline-offset-6 mb-2 block">linkedin</a></li>
+                {/* <li><a href="https://github.com/eugenebelokurov" target="_blank" className="text-white underline underline-offset-6 mb-2 block">github</a></li> */}
+            </ul>
+          </section>
+          <div className="mx-4 mb-8 flex flex-col gap-2">
+            <p>made by me using ♡, HTML, CSS and JS</p>
+            <p>last updated: april 2025</p>
           </div>
-        </main>
+      </div>
+
+      {/* New Desktop page */}
+      <div className="hidden sm:block">
+        <nav className="bg-black fixed h-screen w-[288px] flex flex-col items-center justify-start">
+          <Sidebar />
+        </nav>
+        <div className="flex flex-col ml-[288px]"> {/* container for sections on the page */}
+          <section id="selected-work" className="flex flex-col"> {/* container for selected work */}
+            <p className="font-semibold mx-4 pt-4 pb-2 border-b-[1.5px] border-black">selected work</p>
+            {
+              projects.map((project, i) => (
+                <ProjectCard
+                  key={i}
+                  project={project}
+                />
+              ))
+            }
+          </section>
+          <section id="about-me" className="mt-16 mb-40 mx-4">
+            <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">about me</p>
+            <div className="max-w-2xl">
+              <p  className="mb-8 lowercase">
+                I am a product designer with two years of experience. In total I have 5+ years of grinding at startups. 
+                I worked across different industries including fintech, ecommerce, construction, charities. 
+                I have experience working within teams from seed startups with less than 10 people to scale ups 200+ people. 
+                you can find me in London, UK.
+              </p>
+              <p className="my-8 lowercase">
+                I like to wear many hats. My way is about being full-stack designer: code + business + design. 
+                I am all in for frank but kind communication without fluff.
+              </p>
+            </div>
+          </section>
+          <div className="mx-4 mb-8 flex flex-col gap-2">
+            <p>made by me using ♡, HTML, CSS and JS</p>
+            <p>last updated: april 2025</p>
+          </div>
+        </div>
+
       </div>
     </div>
   );

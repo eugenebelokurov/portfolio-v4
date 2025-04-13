@@ -10,6 +10,8 @@ export interface ProjectImage {
 export interface Project {
     id: number
     research: string
+    description: string
+    tags: string,
     product: string
     companySize: string
     role: string
@@ -23,12 +25,20 @@ const projects: Project[] = [
 {
     id: 1,
     research: "New feature launch for zipsale",
+    description: "0 to 1 feature launch that grew mrr for inventory management platform",
+    tags: "ui design, user research, prototyping, design system",
     product: "b2b saas for second-hand sellers",
     companySize: "<10 people",
     role: "product designer responsible for user research, design, delivery",
     year: "2024",
     status: "live",
     images: [
+    {
+        id: "cover",
+        src: "/images/research-case/cover.png",
+        caption: "specifications for a popup ta ta",
+        alt: "Specifications diagram for a popup interface",
+    },
     {
         id: "progress-indicator-id",
         src: "/images/research-case/progress-indicator.png",
@@ -57,36 +67,21 @@ const projects: Project[] = [
 },
 {
     id: 2,
-    research: "Revamp of core feature for zipsale",
-    product: "b2b saas for second-hand sellers",
-    companySize: "<10 people",
-    role: "product designer responsible for user research, design, delivery",
-    year: "2023",
-    status: "live",
-    images: [
-    {
-        id: "animated-flow-id",
-        src: "/images/sort-case/animated-flow.gif",
-        caption: "demonstration of how sort works",
-        alt: "Demonstration of the sorting functionality",
-    },
-    {
-        id: "animated-tooltip-id",
-        src: "/images/sort-case/animated-tooltip.gif",
-        caption: "scheme for a presentation",
-        alt: "Scheme diagram for presentation",
-    },
-    ],
-},
-{
-    id: 3,
     research: "Product desing for mobile app",
+    description: "concept of an app for advanced english speakers",
+    tags: "mobile app, ui design, design system, react native, API",
     product: "tool for expanding your vocabulary",
     companySize: "<10 people",
     role: "product designer responsible for user research, design, delivery",
     year: "2022",
     status: "concept",
     images: [
+    {
+        id: "cover",
+        src: "/images/app-case/cover.png",
+        caption: "specifications for a popup ta ta",
+        alt: "Specifications diagram for a popup interface",
+    },
     {
         id: "animated-swiping-cards-id",
         src: "/images/app-case/animated-swiping-cards.gif",
@@ -108,14 +103,53 @@ const projects: Project[] = [
     ],
 },
 {
+    id: 3,
+    research: "Revamp of core feature for zipsale",
+    description: "Revamp of core feature for inventory management platform",
+    tags: "ui design, user research, prototyping, design system",
+    product: "b2b saas for second-hand sellers",
+    companySize: "<10 people",
+    role: "product designer responsible for user research, design, delivery",
+    year: "2023",
+    status: "live",
+    images: [
+    {
+        id: "cover",
+        src: "/images/sort-case/cover.png",
+        caption: "specifications for a popup ta ta",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "animated-flow-id",
+        src: "/images/sort-case/animated-flow.gif",
+        caption: "demonstration of how sort works",
+        alt: "Demonstration of the sorting functionality",
+    },
+    {
+        id: "animated-tooltip-id",
+        src: "/images/sort-case/animated-tooltip.gif",
+        caption: "scheme for a presentation",
+        alt: "Scheme diagram for presentation",
+    },
+    ],
+},
+{
     id: 4,
     research: "Design specifications for various products",
+    description: "Design specifications from various products",
+    tags: "ui design, prototyping, design system",
     product: "multiple products",
     companySize: "different sizes",
     role: "product designer responsible for user research, design, delivery",
     year: "2022-2024",
     status: "live and concept",
     images: [
+    {
+        id: "cover",
+        src: "/images/ui-case/cover.png",
+        caption: "specifications for a popup ta ta",
+        alt: "Specifications diagram for a popup interface",
+    },
     {
         id: "definition-specs-id",
         src: "/images/ui-case/definition-specs.png",
