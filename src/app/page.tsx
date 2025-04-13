@@ -1,11 +1,8 @@
 import Sidebar from "@/components/sidebar";
 import MobileSidebar from "@/components/sidebar-mobile";
-import ProjectDescription from "@/components/project-description";
 import ProjectCard from "@/components/project-card";
 
-import Image from "next/image";
-
-import projects, { getProjectImage, getProject } from "./projects";
+import projects from "./projects";
 
 export default function Home() {
 
@@ -15,7 +12,7 @@ export default function Home() {
       <div className="block sm:hidden">
         <div className="flex flex-col gap-2">
           <MobileSidebar />
-          <section>
+          <section id="selected-work">
             <p className="font-semibold mx-4 pt-4 pb-2 border-b-[1.5px] border-black">selected work</p>
             {
               projects.map((project, i) => (
