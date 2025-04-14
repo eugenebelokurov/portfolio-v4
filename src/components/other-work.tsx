@@ -19,8 +19,8 @@ interface OtherWorkProps {
 // Manually map slugs to project IDs
 const slugToProjectIdMap: Record<string, number> = {
   "work-research-zipsale": 1,
-  "work-sort-zipsale": 2,
-  "work-mobile-app-vocabulary": 3,
+  "work-mobile-app-vocabulary": 2,
+  "work-sort-zipsale": 3,
   "work-ui-multiple-products": 4,
 };
 
@@ -44,7 +44,7 @@ export default function OtherWork({ currentSlug }: OtherWorkProps) {
 
   return (
     <div className="flex flex-col mb-8">
-        <h2 className="text-gray-800 font-bold dark:text-zinc-200 mt-8 mb-4">Other Work</h2>
+        <h2 className="text-gray-800 font-bold mt-8 mb-4">Other Work</h2>
         <div className="flex flex-col gap-1">
         {otherFiles.map((file) => (
             <LinkToWork key={file.slug} href={`/projects/${file.slug}`} title={file.title} />
