@@ -12,7 +12,7 @@ export default function Home() {
       <div className="block sm:hidden">
         <div className="flex flex-col gap-2">
           <MobileSidebar />
-          <section id="selected-work">
+          <section id="selected-work-mob">
             <p className="font-semibold mx-4 pt-4 pb-2 border-b-[1.5px] border-black">selected work</p>
             {
               projects.map((project, i) => (
@@ -24,7 +24,7 @@ export default function Home() {
             }
           </section>
         </div>
-        <section id="about-me" className="mt-16 mb-16 mx-4">
+        <section id="about-me-mob" className="mt-16 mb-16 mx-4">
             <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">about me</p>
             <div className="max-w-2xl">
               <p  className="mb-8 lowercase">

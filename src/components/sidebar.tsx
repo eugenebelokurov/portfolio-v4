@@ -58,11 +58,11 @@ export default function Sidebar() {
                 </ul>
             </div>
             <div className="flex flex-col gap-1">
-                {/* <p className="text-[#717171]">personal</p> */}
+                <p className="text-[#717171]">personal</p>
                 <ul>
                     <li><LocalLink href="#about-me" className="text-white">about me</LocalLink></li>
-                    {/* <li className="text-[#424242] underline-offset-6 mb-2">my services</li>
-                    <li className="text-[#424242] underline-offset-6 mb-2">me offline</li> */}
+                    {/* <li className="text-[#424242] underline-offset-6 mb-2">my services</li> */}
+                    <li><LocalLink href="#me-offline" className="text-white">me offline</LocalLink></li>
                 </ul>
             </div>
             <div className="flex flex-col gap-1">
