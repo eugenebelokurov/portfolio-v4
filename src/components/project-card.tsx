@@ -29,7 +29,7 @@ export default function ProjectCard( { project } : ProjectDescriptionProps) {
                         className="w-full h-auto object-cover sm:pl-4"
                         width={288}
                         height={288}
-                        unoptimized={true}
+                        unoptimized={false}
                     />
                     <div className="flex flex-col gap-1">
                         <p className="mb-2 break-words leading-[1.2] lowercase">{project.description}</p>

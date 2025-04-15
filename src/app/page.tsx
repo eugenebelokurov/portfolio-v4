@@ -45,7 +45,7 @@ export default function Home() {
                 <li><a href="https://www.are.na/eugene-belokurov/channels" target="_blank" className="underline underline-offset-6 mb-2 block">are.na</a></li>
                 <li><a href="https://www.instagram.com/evgenybelokurov/" target="_blank" className="underline underline-offset-6 mb-2 block">instagram</a></li>
                 <li><a href="https://www.linkedin.com/in/eugenebelokurov/" target="_blank" className="underline underline-offset-6 mb-2 block">linkedin</a></li>
-                {/* <li><a href="https://github.com/eugenebelokurov" target="_blank" className="text-white underline underline-offset-6 mb-2 block">github</a></li> */}
+                <li><a href="https://github.com/eugenebelokurov" target="_blank" className="text-white underline underline-offset-6 mb-2 block">github</a></li>
             </ul>
           </section>
           <div className="mx-4 mb-8 flex flex-col gap-2">
@@ -84,6 +84,30 @@ export default function Home() {
                 I like to wear many hats. My way is about being full-stack designer: code + business + design. 
                 I am all in for frank but kind communication without fluff.
               </p>
+              <p className="my-8 lowercase">
+                Outside work I am always happy to chat about speciality coffee, exploring city via cycling, 
+                folding paper (thanks to Paul Jackson’s book), history of London, typography.
+              </p>
+            </div>
+          </section>
+          <section id="me-offline" className="mt-16 mb-40 mx-4">
+            <p className="font-semibold pt-4 pb-2 border-b-[1.5px] border-black">me offline</p>
+            <div className="flex flex-row gap-4 py-4">
+              <div className="w-full h-auto max-w-2xl bg-white flex justify-center items-center mb-4">
+                <video className="w-full h-auto" width="320" height="240" preload="auto" autoPlay loop muted playsInline>
+                  <source src="/images/other/1sec.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="max-w-md">
+                <p className="mb-2 break-words leading-[1.2] lowercase">
+                  Every (almost) day I record a video of what I do. Every month I edit a video with one second picked from each day.
+                  it helps me to reflect on my life journey.
+                </p>
+                <a href="http://instagram.com/evgenybelokurov/" target="_blank" className="text-black underline underline-offset-6 hover:text-gray-600">
+                  watch more of it
+                </a>
+              </div>
             </div>
           </section>
           <div className="mx-4 mb-8 flex flex-col gap-2">
