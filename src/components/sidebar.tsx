@@ -61,7 +61,7 @@ export default function Sidebar() {
                 <p className="text-[#717171]">personal</p>
                 <ul>
                     <li><LocalLink href="#about-me" className="text-white">about me</LocalLink></li>
-                    {/* <li className="text-[#424242] underline-offset-6 mb-2">my services</li> */}
+                    <li><LocalLink href="#my-services" className="text-white">my services</LocalLink></li>
                     <li><LocalLink href="#me-offline" className="text-white">me offline</LocalLink></li>
                 </ul>
             </div>

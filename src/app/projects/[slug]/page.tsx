@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 import OtherWork from "@/components/other-work";
+import ImageContainerMdx from "@/components/image-container-case";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useMDXComponents } from "../../../../mdx-components";
@@ -48,6 +50,7 @@ function ProjectPageContent({ fileContent }: { fileContent: string }) {
   const components = {
     Image, // Pass the Image component
     OtherWork,
+    ImageContainerMdx,
     ...useMDXComponents({}), // Include your custom MDX components
   };
 

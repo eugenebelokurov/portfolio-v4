@@ -60,8 +60,8 @@ export default function Home() {
           <Sidebar />
         </nav>
         <div className="flex flex-col ml-[288px]"> {/* container for sections on the page */}
-          <section id="selected-work" className="flex flex-col"> {/* container for selected work */}
-            <p className="font-semibold mx-4 pt-4 pb-2 border-b-[1.5px] border-black">selected work</p>
+          <section id="selected-work" className="flex flex-col mb-16 pt-4"> {/* container for selected work */}
+            <p className="font-semibold mx-4 pb-2 border-b-[1.5px] border-black leading-[1.2]">selected work</p>
             {
               projects.map((project, i) => (
                 <ProjectCard
@@ -71,7 +71,7 @@ export default function Home() {
               ))
             }
           </section>
-          <section id="about-me" className="mt-16 mb-40 mx-4">
+          <section id="about-me" className="mt-16 mb-16 mx-4">
             <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">about me</p>
             <div className="max-w-2xl">
               <p  className="mb-8 lowercase">
@@ -90,7 +90,39 @@ export default function Home() {
               </p>
             </div>
           </section>
-          <section id="me-offline" className="mt-16 mb-40 mx-4">
+
+          <section id="my-services" className="mt-16 mb-32 mx-4 lowercase">
+            <p className="font-semibold pt-4 pb-2 mb-2 border-b-[1.5px] border-black">my services</p>
+            <div className="grid grid-cols-[2fr_3fr] gap-4">
+              <p className="mb-8 lowercase">
+                Here are the kinds of problems I help solve and how I typically approach them.
+              </p>
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-1 bg-[#F5F5F5] p-8">
+                  <p className="font-semibold">Your product isn&#39;t hitting its targets (MRR, retention, engagement)</p>
+                  <p className="text-[#666666]">I run usability tests, user interviews, and product audits to uncover friction points and pinpoint what’s holding users back.</p>
+                </div>
+                <div className="flex flex-col gap-1 bg-[#F5F5F5] p-8">
+                  <p className="font-semibold">You have an idea but don&#39;t know how to turn it into a product</p>
+                  <p className="text-[#666666]">I help shape the concept, explore the business model, validate assumptions, and design it all the way from zero to launch.</p>
+                </div>
+                <div className="flex flex-col gap-1 bg-[#F5F5F5] p-8">
+                  <p className="font-semibold">You need to test an idea before committing to full development</p>
+                  <p className="text-[#666666]">I create interactive prototypes (with or without code) that you can test with users, stakeholders, or investors to reduce risk early.</p>
+                </div>
+                <div className="flex flex-col gap-1 bg-[#F5F5F5] p-8">
+                  <p className="font-semibold">You&#39;re about to launch and need supporting design work</p>
+                  <p className="text-[#666666]">I design launch materials like landing pages and presentation decks to make sure your product gets the attention it deserves.</p>
+                </div>
+                <div className="flex flex-col gap-1 bg-[#F5F5F5] p-8">
+                  <p className="font-semibold">You&#39;re entering a new market or audience segment</p>
+                  <p className="text-[#666666]">I lead research sprints, competitor reviews, and customer journey mapping to help reposition your product.</p>
+                </div>
+              </div>
+            </div>            
+          </section>
+
+          <section id="me-offline" className="mt-16 mb-32 mx-4">
             <p className="font-semibold pt-4 pb-2 border-b-[1.5px] border-black">me offline</p>
             <div className="flex flex-row gap-4 py-4">
               <div className="w-full h-auto max-w-2xl bg-white flex justify-center items-center mb-4">

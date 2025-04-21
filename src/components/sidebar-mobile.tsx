@@ -49,17 +49,19 @@ export default function MobileSidebar() {
                     </a>
                 </div>
             </div>
-            <ul className="flex flex-wrap gap-4">
+            <ul className="flex flex-wrap gap-4 items-center">
                 <li>
                     <LocalLink href="#selected-work" className="text-white">
                         my work
                     </LocalLink>
                 </li>
+                {/* <li><div className="bg-white h-4 w-[1.8px]"></div></li> */}
                 <li>
                     <LocalLink href="#about-me" className="text-white">
                         about me
                     </LocalLink>
                 </li>
+                {/* <li><div className="bg-white h-4 w-[1.8px]"></div></li> */}
                 {/* <li>
                     <LocalLink href="#my-notes" className="text-white">
                         my notes
