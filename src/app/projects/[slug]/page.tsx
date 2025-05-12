@@ -11,7 +11,13 @@ import Image from "next/image";
 import { useMDXComponents } from "../../../../mdx-components";
 
 // Define the valid project slugs
-const validSlugs = ["work-research-zipsale", "work-mobile-app-vocabulary", "work-sort-zipsale", "work-ui-multiple-products"];
+const validSlugs = [
+  "work-research-zipsale", 
+  "work-mobile-app-vocabulary", 
+  "work-sort-zipsale", 
+  "work-ui-multiple-products",
+  "work-medtech",
+];
 
 export async function generateStaticParams() {
   return validSlugs.map((slug) => ({ slug }));
@@ -22,6 +28,8 @@ type Params = Promise<{ slug: string }>
 export default async function ProjectPage( props : { params: Params }) {
   const params = await props.params;
   const slug = params.slug;
+
+  console.log("Params:", params)
 
   // Check if the slug is valid
   if (!validSlugs.includes(slug)) {
@@ -59,7 +67,7 @@ function ProjectPageContent({ fileContent }: { fileContent: string }) {
       <Link href="/" className="underline underline-offset-6 hover:text-gray-600 self-start py-8">
         home
       </Link>
-      <article className="prose prose-slate">
+      <article className="prose prose-slate overflow-visible w-full">
         <MDXRemote source={fileContent} components={components} />
       </article>
     </main>

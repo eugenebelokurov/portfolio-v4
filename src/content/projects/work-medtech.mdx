@@ -1,0 +1,65 @@
+# Design that builds trust between doctors and AI
+
+I helped early-stage medtech startup to redesign one of their core products. The company built proof of concept using no-code tool and was ready for the next step. I joined the team to identify usability issues and make the product look smart and trustworthy. With insights from doctors and the team, I rebuilt the product from the ground up: new information architecture, explanations of AI recommendations and new visual language. As a result, I delivered an interactive prototype using Next.js.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center mb-4">
+  <Image src="/images/medtech-case/patient-notes.png" alt="Word Embeddings" width="620" height="400"/>
+</div>
+
+- my role: run user research, designer wireframes, coded interactive prototypes
+- team: me, 4 doctors, 1 ML engineer, 1 product owner
+- year: 2025
+- timeline: 4 weeks
+
+## Product
+Imagine a private hospital or clinic. Every doctor appointment results in patient notes. These notes have to comply with both government regulations and internal rules. If a doctor fails to provide a correct diagnosis, it may result in incorrect treatment, fines from an insurance company, lost profit and even criminal charges.
+
+To prevent that, clinics implement quality assurance practices. Usually, about 10% of all notes are assessed, manually. This results in missed errors and a cumbersome process of tracking the doctors’ performance.
+
+This is where the product comes in. It analyses 100% of all protocols across 300 parameters, ranging from ones impacting treatment to formatting issues.
+
+## Problem
+- **Information architecture issues.** Key information missing or hidden, 
+- **Non-actionable AI recommendations.** With AI labels like “good quality” or “critical quality”, doctors didn’t know how to prioritise notes to be looked at.
+- **“No code builder” style and accessibility issues.** The visual style became a problem on sales calls. On top of that, doctors complained about small font sizes and being overwhelmed by the interface.
+
+## Solution
+Dashboard before and after
+<ImageContainerMdx projectId={5} imageId="old-dashboard" captionShow={true} />
+<ImageContainerMdx projectId={5} imageId="dashboard-id" captionShow={true} />
+
+
+Patient notes before and after
+<ImageContainerMdx projectId={5} imageId="patient-notes-before-id" captionShow={true} />
+<ImageContainerMdx projectId={5} imageId="patient-notes-id" captions="After" captionShow={true} />
+
+## Metrics
+We settled on tracking the “trustworthiness” and a number of new deals closed.
+
+## Why this solution
+
+I have run interviews and closed card sorting research with doctors to gather insights and decide on information architecture.
+
+<ImageContainerMdx projectId={5} imageId="dashboard-with-comments-id" captionShow={true} />
+
+<div className="flex flex-col mb-4">
+  <div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center">
+    <video className="rounded-md" width="1200" height="400" preload="auto" autoPlay loop muted playsinline>
+      <source src="/images/medtech-case/filter-in-action.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p className="text-gray-600 indent-4 text-[14px] mt-1">Filters in action</p>
+</div>
+
+The most used filters are always displayed. Doctors get feedback about the number of records.
+<ImageContainerMdx projectId={5} imageId="filters-and-how-they-work-id" captions="After" captionShow={true} />
+
+Structure of the protofol page: header with key info, original notes from the assesment, AI feedback
+<ImageContainerMdx projectId={5} imageId="structure-of-protocol-page-id" captionShow={true} />
+
+The header was redesigned based on card sorting excercise.
+
+<ImageContainerMdx projectId={5} imageId="header-before-and-after-id" captionShow={true} />
+
+<OtherWork currentSlug="work-medtech"/>

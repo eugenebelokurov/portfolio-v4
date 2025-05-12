@@ -10,6 +10,7 @@ const ProjectIdToSlugMap: Record<number, string> = {
     2: "work-mobile-app-vocabulary",
     3: "work-sort-zipsale",
     4: "work-ui-multiple-products",
+    5: "work-medtech",
 };
 
 interface ProjectDescriptionProps {

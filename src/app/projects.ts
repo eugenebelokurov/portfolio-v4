@@ -23,6 +23,73 @@ export interface Project {
 // Project data
 const projects: Project[] = [
 {
+    id: 5,
+    research: "Design specifications for various products",
+    description: "Design that builds trust between doctors and AI",
+    tags: "prototyping, next.js, AI, b2b",
+    product: "multiple products",
+    companySize: "different sizes",
+    role: "product designer responsible for user research, design, delivery",
+    year: "2022-2024",
+    status: "live and concept",
+    images: [
+    {
+        id: "cover",
+        src: "/images/medtech-case/cover.png",
+        caption: "After",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "old-dashboard",
+        src: "/images/medtech-case/old-dashboard.png",
+        caption: "Before",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "patient-notes-before-id",
+        src: "/images/medtech-case/patient-notes-before.png",
+        caption: "Before",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "dashboard-with-comments-id",
+        src: "/images/medtech-case/dashboard-with-comments.png",
+        caption: "Structure of the dashboard",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "patient-notes-id",
+        src: "/images/medtech-case/patient-notes.png",
+        caption: "After",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "header-before-and-after-id",
+        src: "/images/medtech-case/header-before-and-after.png",
+        caption: "Header before and after",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "structure-of-protocol-page-id",
+        src: "/images/medtech-case/structure-of-protocol-page.png",
+        caption: "Structure of the protocol page",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "filters-and-how-they-work-id",
+        src: "/images/medtech-case/filters-and-how-they-work.png",
+        caption: "The logic of the filters",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "dashboard-id",
+        src: "/images/medtech-case/dashboard.png",
+        caption: "Header before and after",
+        alt: "Specifications diagram for a popup interface",
+    },
+    ],
+},
+{
     id: 1,
     research: "New feature launch for zipsale",
     description: "0 to 1 feature launch that grew mrr for inventory management platform",
