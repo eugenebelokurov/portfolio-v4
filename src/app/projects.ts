@@ -24,9 +24,9 @@ export interface Project {
 const projects: Project[] = [
 {
     id: 5,
-    research: "Design specifications for various products",
+    research: "Redesign for AI medtech platform",
     description: "Design that builds trust between doctors and AI",
-    tags: "prototyping, next.js, AI, b2b",
+    tags: "prototyping, next.js, AI, medtech, b2b",
     product: "multiple products",
     companySize: "different sizes",
     role: "product designer responsible for user research, design, delivery",
@@ -84,7 +84,7 @@ const projects: Project[] = [
     {
         id: "dashboard-id",
         src: "/images/medtech-case/dashboard.png",
-        caption: "Header before and after",
+        caption: "New dashboard",
         alt: "Specifications diagram for a popup interface",
     },
     ],
