@@ -11,6 +11,7 @@ const ProjectIdToSlugMap: Record<number, string> = {
     3: "work-sort-zipsale",
     4: "work-ui-multiple-products",
     5: "work-medtech",
+    6: "work-prescription-redesign",
 };
 
 interface ProjectDescriptionProps {

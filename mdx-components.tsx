@@ -12,7 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h3 className="text-gray-600 font-semibold mt-8 mb-4">{children}</h3>
     ),
     p: ({ children }) => (
-      <p className="text-gray-800 font-medium leading-snug mb-4">{children}</p>
+      <p className="text-gray-800 font-medium leading-6 mb-4 ">{children}</p>
     ),
     ol: ({ children }) => (
       <ol className="text-gray-800 list-decimal pl-5 space-y-2 mb-4">{children}</ol>

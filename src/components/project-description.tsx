@@ -11,6 +11,8 @@ const ProjectIdToSlugMap: Record<number, string> = {
     2: "work-sort-zipsale",
     3: "work-mobile-app-vocabulary",
     4: "work-ui-multiple-products",
+    5: "work-medtech",
+    6: "work-prescription-redesign",
   };
 
 export default function ProjectDescription( { project, isActive } : ProjectDescriptionProps) {

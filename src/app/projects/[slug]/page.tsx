@@ -17,6 +17,7 @@ const validSlugs = [
   "work-sort-zipsale", 
   "work-ui-multiple-products",
   "work-medtech",
+  "work-prescription-redesign"
 ];
 
 export async function generateStaticParams() {
@@ -29,8 +30,6 @@ export default async function ProjectPage( props : { params: Params }) {
   const params = await props.params;
   const slug = params.slug;
 
-  console.log("Params:", params)
-
   // Check if the slug is valid
   if (!validSlugs.includes(slug)) {
     notFound();
@@ -39,8 +38,6 @@ export default async function ProjectPage( props : { params: Params }) {
   // Read the MDX file
   const filePath = path.join(process.cwd(), "src", "content", "projects", `${slug}.mdx`);
 
-  console.log(`Reading file: ${filePath}`);
-
   try {
     const fileContent = fs.readFileSync(filePath, "utf8");
 
@@ -48,7 +45,7 @@ export default async function ProjectPage( props : { params: Params }) {
       <ProjectPageContent fileContent={fileContent} />
     );
   } catch (error) {
-    console.error(`Error reading MDX file: ${error}`);
+    console.error(`Error reading file for slug "${slug}":`, error);
     notFound();
   }
 }

@@ -23,6 +23,73 @@ export interface Project {
 // Project data
 const projects: Project[] = [
 {
+    id: 6,
+    research: "Redesign for prescription platform",
+    description: "Redesigning prescription platform used by 6,000 doctors",
+    tags: "prototyping, next.js, medtech, b2b",
+    product: "multiple products",
+    companySize: "different sizes",
+    role: "product designer responsible for user research and design",
+    year: "2025",
+    status: "in development",
+    images: [
+    {
+        id: "cover",
+        src: "/images/medtech-prescriptions/cover.png",
+        caption: "After",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "before",
+        src: "/images/medtech-prescriptions/before.png",
+        caption: "Before",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "after",
+        src: "/images/medtech-prescriptions/after.png",
+        caption: "After: everything within one window",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "prescription-process",
+        src: "/images/medtech-prescriptions/prescription-process.png",
+        caption: "Process of prescribing",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "my-process",
+        src: "/images/medtech-prescriptions/my-process.png",
+        caption: "Process of prescribing",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "old-flow",
+        src: "/images/medtech-prescriptions/old-flow.png",
+        caption: "Before: several steps and many clicks",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "product-audit",
+        src: "/images/medtech-prescriptions/product-audit.png",
+        caption: "Before: several steps and many clicks",
+        alt: "Specifications diagram for a popup interface",
+    },
+    {
+        id: "onboarding-main-section",
+        src: "/images/medtech-prescriptions/onboarding-main-section.png",
+        caption: "Before: several steps and many clicks",
+        alt: "Specifications diagram for a popup interface",
+    },
+     {
+        id: "cover-wo-bg",
+        src: "/images/medtech-prescriptions/cover-wo-bg.png",
+        caption: "Before: several steps and many clicks",
+        alt: "Specifications diagram for a popup interface",
+    },
+    ],
+},
+{
     id: 5,
     research: "Redesign for AI medtech platform",
     description: "Design that builds trust between doctors and AI",

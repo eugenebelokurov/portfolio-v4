@@ -1,0 +1,106 @@
+# Redesigning prescription platform used by 6,000 doctors
+
+Medtech startup needed to redesign their core product to better serve doctors' workflows. The product was hard to use and was more time-consuming than traditional solutions. Through user research analysis and iterative prototyping, I redesigned the information architecture around a central card concept and introduced smart search and filtering. The solution was approved by senior team and is about to be tested with doctors.
+
+<div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center xl:-mx-48 my-12">
+  <Image src="/images/medtech-prescriptions/cover-wo-bg.png" alt="Word Embeddings" width="1900" height="400"/>
+</div>
+
+- my role: defined information architecture, coded interactive prototype
+- team: me, 1 product owner
+- year: 2025
+- timeline: 2 weeks
+- deliverable: interactive prototype ready for testing with users
+
+## Problem to solve
+Key issues:
+1. Too many clicks for basic tasks—doctors want "couple of clicks" max
+2. Faster to prescribe from memory than to use current product
+3. Difficult treatment search and selection process
+4. Multiple windows, slow workflow—no time to navigate between screens
+
+## Solution
+
+Success criteria: reduce clicks to target action and increase speed of work.
+
+With that in mind, I redesigned the entire information architecture around a one-window concept with:
+
+- Central card interface for primary actions
+- Smart search and filtering for quick access
+- Clinical recommendations are prominently positioned
+- Templates and tools accessible from sides
+
+This how the interface looked before
+
+<ImageContainerMdx projectId={6} imageId="old-flow" captionShow={true} />
+
+And this is what we ended up with
+
+<ImageContainerMdx projectId={6} imageId="after" captionShow={true} />
+
+## Process
+
+I started with auditing current and previous versions of the product. It is blurred for privacy reasons, but you can see blue and red blobs. These are my questions about why certain things work like that. Result: I understand how the product works.
+
+<ImageContainerMdx projectId={6} imageId="product-audit" captionShow={true} />
+
+The team had already run user research to collect feedback about the current product. The anonymous survey holds feedback from doctors using product daily: how often they use it, what they like, what they don't like. Analysing the document gave me an understanding of the most burning issues (listed in "Problems" section).
+
+After digesting all this information I suggested the new foundational logic: "When a doctor opens our product, they already have treatments/diagnostics in mind. We should allow them to add items straight away."
+
+<ImageContainerMdx projectId={6} imageId="prescription-process" captionShow={true} />
+
+Implementation-wise, my process looked like this
+
+<ImageContainerMdx projectId={6} imageId="my-process" captionShow={true} />
+
+This is how the new product will be structured. Key sections:
+1. **Functional sidebar.** Here live most importantly templates and all secondary actions, they might be useful but are secondary nevertheless.
+2. **Section where you add prescriptions.** The key part of the interface. Here, doctors adds what will be prescribed to a patient.
+3. **List of all diagnostics and treatments.** When necessary, a doctor can consult with all the diagnostics and treatments recommended based on the condition of a patient.
+
+<ImageContainerMdx projectId={6} imageId="onboarding-main-section" captionShow={true} />
+
+There are three ways to add prescriptions. 
+
+You can manually select from the sidebar on the right-hand side.
+
+<div className="flex flex-col xl:-mx-48 my-12">
+  <div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center">
+    <video className="rounded-md" width="1200" height="400" preload="auto" autoPlay loop muted playsInline>
+      <source src="/images/medtech-prescriptions/manual.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p className="text-gray-600 indent-4 text-[14px] mt-1">Manually adding prescriptions</p>
+</div>
+
+Or use shortcuts and search bar. This feature is based on the hypothesis that in most cases, doctors already know what they are going to prescribe when they open this product.
+
+<div className="flex flex-col xl:-mx-48 my-12">
+  <div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center">
+    <video className="rounded-md" width="1200" height="400" preload="auto" autoPlay loop muted playsInline>
+      <source src="/images/medtech-prescriptions/search-modals.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p className="text-gray-600 indent-4 text-[14px] mt-1">Using shortcuts</p>
+</div>
+
+Or you can use template for the most common cases.
+
+<div className="flex flex-col xl:-mx-48 my-12">
+  <div className="border border-gray-200 rounded-md p-4 bg-white flex justify-center items-center">
+    <video className="rounded-md" width="1200" height="400" preload="auto" autoPlay loop muted playsInline>
+      <source src="/images/medtech-prescriptions/templates.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p className="text-gray-600 indent-4 text-[14px] mt-1">Adding from templates</p>
+</div>
+
+## Results
+- Senior team buy-in: Approved innovative approach despite initial conservatism
+- User-testing ready: Interactive prototype delivered for development
+
+<OtherWork currentSlug="work-prescription-redesign"/>

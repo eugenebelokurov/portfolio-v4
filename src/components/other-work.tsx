@@ -23,6 +23,7 @@ const slugToProjectIdMap: Record<string, number> = {
   "work-sort-zipsale": 3,
   "work-ui-multiple-products": 4,
   "work-medtech": 5,
+  "work-prescription-redesign": 6,
 };
 
 export default function OtherWork({ currentSlug }: OtherWorkProps) {
