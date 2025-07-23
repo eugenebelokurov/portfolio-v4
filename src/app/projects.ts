@@ -60,7 +60,7 @@ const projects: Project[] = [
     {
         id: "my-process",
         src: "/images/medtech-prescriptions/my-process.png",
-        caption: "Process of prescribing",
+        caption: "From ideation to working prototype",
         alt: "Specifications diagram for a popup interface",
     },
     {
@@ -72,13 +72,13 @@ const projects: Project[] = [
     {
         id: "product-audit",
         src: "/images/medtech-prescriptions/product-audit.png",
-        caption: "Before: several steps and many clicks",
+        caption: "User journey analysis in the old product",
         alt: "Specifications diagram for a popup interface",
     },
     {
         id: "onboarding-main-section",
         src: "/images/medtech-prescriptions/onboarding-main-section.png",
-        caption: "Before: several steps and many clicks",
+        caption: "Main parts of the interface",
         alt: "Specifications diagram for a popup interface",
     },
      {
